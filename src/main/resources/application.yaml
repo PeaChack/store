@@ -1,3 +1,10 @@
 spring:
   application:
     name: store
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: test
+    username: test
+    url: jdbc:postgresql://localhost:5432/store
+  liquibase:
+    enabled: true
