@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changes/initial-schema.yaml
+  - include:
+      file: db/changelog/changes/category-name-constraint.yaml
