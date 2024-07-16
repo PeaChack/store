@@ -1,10 +1,12 @@
 package by.peachack.store.domain;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Entity
+@Data
 @Table(name = "product")
 public class Product {
     @Id

@@ -1,8 +1,10 @@
 package by.peachack.store.domain;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "category")
 public class Category {
     @Id
