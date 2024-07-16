@@ -1,0 +1,58 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: PeaChack
+      changes:
+        - createTable:
+            tableName: "category"
+            columns:
+              - column:
+                  name: "id"
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: "name"
+                  type: varchar(50)
+              - column:
+                  name: "description"
+                  type: varchar
+
+  - changeSet:
+      id: 2
+      author: PeaChack
+      changes:
+        - createTable:
+            tableName: "product"
+            columns:
+              - column:
+                  name: "id"
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: "name"
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: "description"
+                  type: varchar
+              - column:
+                  name: "category_id"
+                  type: bigint
+              - column:
+                  name: "price"
+                  type: decimal
+              - column:
+                  name: "stock_quantity"
+                  type: int
+
+        - addForeignKeyConstraint:
+            constraintName: "category_products"
+            baseTableName: "product"
+            baseColumnNames: "category_id"
+            referencedTableName: "category"
+            referencedColumnNames: "id"
