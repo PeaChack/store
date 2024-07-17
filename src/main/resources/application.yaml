@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active:
   application:
     name: store
   datasource:
@@ -8,3 +10,5 @@ spring:
     url: jdbc:postgresql://localhost:5432/store
   liquibase:
     enabled: true
+server:
+  port: 8090
