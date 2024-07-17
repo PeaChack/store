@@ -9,6 +9,6 @@ public interface CategoryService {
     List<Category> findCategories();
     Category findCategory(Long id);
     Category findCategoryByName(String name);
-    Boolean removeCategory(Category category);
+    Boolean removeCategory(Long id);
     Category updateCategory(Category category);
 }
