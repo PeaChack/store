@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: PeaChack
+      changes:
+        - dropForeignKeyConstraint:
+            baseTableName: "product"
+            constraintName: "category_products"
+  - changeSet:
+      id: 2
+      author: PeaChack
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: "category_products"
+            baseTableName: "product"
+            baseColumnNames: "category_id"
+            referencedTableName: "category"
+            referencedColumnNames: "id"
+            onDelete: "CASCADE"

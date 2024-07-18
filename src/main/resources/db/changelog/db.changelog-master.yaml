@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/changes/initial-schema.yaml
   - include:
       file: db/changelog/changes/category-name-constraint.yaml
+  - include:
+      file: db/changelog/changes/category-cascade-delete.yaml
