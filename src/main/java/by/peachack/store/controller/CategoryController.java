@@ -1,7 +1,7 @@
 package by.peachack.store.controller;
 
 import by.peachack.store.domain.Category;
-import by.peachack.store.service.CategoryService;
+import by.peachack.store.service.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,12 +33,6 @@ public class CategoryController {
         return ResponseEntity.ok(category);
     }
 
-    @GetMapping("/name/{name}")
-    public ResponseEntity<Category> getCategoryByName(@PathVariable String name) {
-        Category category = categoryService.findCategoryByName(name);
-        return ResponseEntity.ok(category);
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
         boolean deleted = categoryService.removeCategory(id);
@@ -51,8 +45,7 @@ public class CategoryController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category category) {
-        category.setId(id);
-        Category updatedCategory = categoryService.updateCategory(category);
+        Category updatedCategory = categoryService.updateCategory(category, id);
         return ResponseEntity.ok(updatedCategory);
     }
 }

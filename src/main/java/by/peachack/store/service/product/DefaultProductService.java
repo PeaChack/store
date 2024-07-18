@@ -1,4 +1,4 @@
-package by.peachack.store.service;
+package by.peachack.store.service.product;
 
 import by.peachack.store.domain.Product;
 import by.peachack.store.repository.ProductRepository;
@@ -45,7 +45,12 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
-    public Product updateProduct(Product product) {
-        return productRepository.save(product);
+    public Product updateProduct(Product product, Long id) {
+        boolean exists = productRepository.existsById(id);
+        if (exists) {
+            product.setId(id);
+            return productRepository.save(product);
+        } else
+            throw new NoSuchElementException(String.format("Product with id %d not found", id));
     }
 }

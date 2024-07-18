@@ -1,4 +1,4 @@
-package by.peachack.store.service;
+package by.peachack.store.service.category;
 
 import by.peachack.store.domain.Category;
 
@@ -10,5 +10,5 @@ public interface CategoryService {
     Category findCategory(Long id);
     Category findCategoryByName(String name);
     Boolean removeCategory(Long id);
-    Category updateCategory(Category category);
+    Category updateCategory(Category category, Long id);
 }

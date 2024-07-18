@@ -1,4 +1,4 @@
-package by.peachack.store.service;
+package by.peachack.store.service.product;
 
 import by.peachack.store.domain.Product;
 
@@ -10,5 +10,5 @@ public interface ProductService {
     Product findProduct(Long id);
     Product findProductByName(String name);
     Boolean removeProduct(Long id);
-    Product updateProduct(Product product);
+    Product updateProduct(Product product, Long id);
 }

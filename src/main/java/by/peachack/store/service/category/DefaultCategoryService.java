@@ -1,4 +1,4 @@
-package by.peachack.store.service;
+package by.peachack.store.service.category;
 
 import by.peachack.store.domain.Category;
 import by.peachack.store.repository.CategoryRepository;
@@ -46,7 +46,12 @@ public class DefaultCategoryService implements CategoryService {
     }
 
     @Override
-    public Category updateCategory(Category category) {
-        return categoryRepository.save(category);
+    public Category updateCategory(Category category, Long id) {
+        boolean exists = categoryRepository.existsById(id);
+        if (exists) {
+            category.setId(id);
+            return categoryRepository.save(category);
+        } else
+            throw new NoSuchElementException(String.format("Category with id %d not found", id));
     }
 }
